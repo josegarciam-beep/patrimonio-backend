@@ -8,6 +8,7 @@ class Categoria(models.Model):
     def __str__(self):
         return self.nombre
 
+
 class Lugar(models.Model):
     nombre = models.CharField(max_length=150)
     descripcion = models.TextField(blank=True)
@@ -18,3 +19,15 @@ class Lugar(models.Model):
 
     def __str__(self):
         return self.nombre
+
+
+class Resena(models.Model):
+    lugar = models.ForeignKey(
+        Lugar, on_delete=models.CASCADE, related_name='resenas'
+    )
+    autor = models.CharField(max_length=100)
+    comentario = models.TextField()
+    calificacion = models.PositiveSmallIntegerField(default=5)
+
+    def __str__(self):
+        return f'{self.autor} - {self.lugar}'
