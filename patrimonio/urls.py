@@ -5,5 +5,6 @@ router = DefaultRouter()
 router.register(r'categorias', CategoriaViewSet)
 
 router.register(r'lugares', LugarViewSet)
+router.register(r'resenas', ResenaViewSet)
 
 urlpatterns = router.urls
